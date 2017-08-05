@@ -7,11 +7,11 @@ reqs = ['numpy']
 
 setup(
     name='debt-balance',
-    packages=['balancer', 'test'],
+    packages=['balancer', 'test', 'cli'],
     setup_requires=['flake8'],
     test_suite='test',
     entry_points={
-        "console_scripts": ['tfimgsort = tfimgsort.tfimgsort:main']
+        "console_scripts": ['payment-balance = cli.cli:main']
         },
     version=version,
     description="A tool for evenly sharing the costs of a trip.",
