@@ -2,6 +2,7 @@ import unittest
 
 from balancer.balancer import balance
 
+
 class TestBalancer(unittest.TestCase):
     def test_description_example(self):
         names = ['john', 'luke']
