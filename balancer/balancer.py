@@ -1,7 +1,7 @@
 import numpy as np
 import queue as Q
 
-def balance(names, debts):
+def balance(names, paid):
     """Given a list of payments, determine the minimal number of
     transfers to have everyone pay an equal number of shares.
 
@@ -15,16 +15,16 @@ def balance(names, debts):
     ----------
     names: list[string]
         The names of the people paying into the pot. The indexs
-        are aligned with the debts.
-    debts : list[float]
+        are aligned with the paid.
+    paid : list[float]
         A list of payments made. Each row is a distinct person.
         and each value is the total payments they made.
   """
 
     result = []
 
-    expected_payment = float(sum(debts)) / max(len(debts), 1)
-    delta_payments = np.array(debts) - expected_payment
+    expected_payment = float(sum(paid)) / max(len(paid), 1)
+    delta_payments = np.array(paid) - expected_payment
     delta_payments =list(zip(delta_payments, names))
     debtors = [(x[0]*-1, x[1]) for x in delta_payments if x[0] < 0]
     lenders = [x for x in delta_payments if x[0] > 0]
